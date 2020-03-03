@@ -1,0 +1,29 @@
+﻿  ArrOperations.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\ArrOperations.cpp(82,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  BubbleSort.cpp
+  SelectSort.cpp
+  ShakerSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(18,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(18,47): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(185,58): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(185,44): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  main.cpp
+  menu.cpp
+  Generating code
+  140 of 294 functions (47.6%) were compiled, the rest were copied from previous compilation.
+    56 functions were new in current compilation
+    21 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  SAOD_SFML.vcxproj -> C:\Users\mangr\source\repos\SAOD_SFML\x64\Release\SAOD_SFML.exe

@@ -1,0 +1,19 @@
+﻿  ShakerSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(18,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(18,49): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(184,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(187,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(187,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+          with
+          [
+              T=float
+          ]
+  SAOD_SFML.vcxproj -> C:\Users\mangr\source\repos\SAOD_SFML\x64\Debug\SAOD_SFML.exe
