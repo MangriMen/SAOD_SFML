@@ -169,16 +169,18 @@
     <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="ArrOperations.cpp" />
     <ClCompile Include="compare.cpp" />
+    <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="SelectSort.cpp" />
     <ClCompile Include="ShakerSort.cpp" />
-    <ClCompile Include="Style.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrOperations.hpp" />
     <ClInclude Include="BubbleSort.hpp" />
     <ClInclude Include="compare.hpp" />
+    <ClInclude Include="Constants.hpp" />
+    <ClInclude Include="InsertionSort.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="SelectSort.hpp" />
     <ClInclude Include="ShakerSort.hpp" />

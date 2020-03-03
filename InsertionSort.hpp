@@ -12,5 +12,5 @@
 using namespace std;
 using namespace sf;
 
-void ShakerSort(vector<int>& mass, int& M, int& C);
-void ShakerSortMenu(RenderWindow& window);
+void InsertionSort(vector<int>& mass, int& M, int& C);
+void InsertionSortMenu(RenderWindow& window);

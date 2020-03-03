@@ -39,8 +39,8 @@
     <ClCompile Include="compare.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Style.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="InsertionSort.cpp">
+      <Filter>Source Files\Sorts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +60,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="compare.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Constants.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InsertionSort.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

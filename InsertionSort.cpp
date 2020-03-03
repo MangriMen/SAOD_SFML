@@ -12,34 +12,26 @@
 
 using namespace std;
 
-void ShakerSort(vector<int>& mass, int& M, int& C)
+void InsertionSort(vector<int>& mass, int& M, int& C)
 {
-	int R = mass.size() - 1, L = 0, k = mass.size();
-	M = 0;
-	C = 0;
-	while (L < R) {
-		for (int i = R; i > L; --i) {
-			C++;
-			if (mass[i] < mass[i - 1]) {
-				swap(mass[i], mass[i - 1]);
-				M += 3;
-				k = i;
-			}
+	int t = 0, j = 0;
+	for (int i = 1; i < mass.size(); i++)
+	{
+		C++;
+		t = mass[i];
+		j = i - 1;
+
+		while (j > 0 && t < mass[j])
+		{
+			mass[j + 1] = mass[j];
+			j = j - 1;
+			M += 3;
 		}
-		L = k;
-		for (int j = L; j < R; ++j) {
-			C++;
-			if (mass[j] > mass[j + 1]) {
-				swap(mass[j], mass[j + 1]);
-				M += 3;
-				k = j;
-			}
-		}
-		R = k;
+		mass[j + 1] = t;
 	}
 }
 
-void ShakerSortMenu(RenderWindow& window)
+void InsertionSortMenu(RenderWindow& window)
 {
 	vector<int> a(18);
 
@@ -70,7 +62,7 @@ void ShakerSortMenu(RenderWindow& window)
 	SetOriginOnCenter(tOy);
 	tOy.setPosition(rOy.getPosition() + rOy.getSize() + Vector2f(10, -5));
 
-	VertexArray graph(LineStrip, (int)ceil(graphPoints/(double)step));
+	VertexArray graph(LineStrip, (int)ceil(graphPoints / (double)step));
 
 	rArrayOut.setPosition(Vector2f(435, 50));
 	rArrayOutO.setPosition(Vector2f(435, 145));
@@ -176,13 +168,13 @@ void ShakerSortMenu(RenderWindow& window)
 					}
 					if (menuNum == 4)
 					{
-						ShakerSort(a, M, C);
+						InsertionSort(a, M, C);
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
 						for (int i = 1, j = 0; i < graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
-							ShakerSort(a, M, C);
+							InsertionSort(a, M, C);
 							graph[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
 							OyGraphNum(i, M + C, rOy, temp, font, 500);
 							M = 0, C = 0;

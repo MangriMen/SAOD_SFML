@@ -19,5 +19,6 @@ int main()
 	{
 		menu(window);
 	}
+
 	return 0;
 }
