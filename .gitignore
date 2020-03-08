@@ -24,7 +24,7 @@
 *.lai
 *.la
 *.a
-
+*.lib
 
 # Executables
 *.exe
@@ -33,3 +33,4 @@
 
 # Visual Studio
 .vs/
+x64/
