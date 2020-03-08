@@ -179,7 +179,7 @@ void ShakerSortMenu(RenderWindow& window)
 						ShakerSort(a, M, C);
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
-						for (int i = 1, j = 0; i < graphPoints; ++j, i += step)
+						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
 							ShakerSort(a, M, C);

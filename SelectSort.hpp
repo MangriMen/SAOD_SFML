@@ -8,5 +8,5 @@ using namespace std;
 using namespace sf;
 
 void SelectSortMenu(RenderWindow& window);
-void SelectSort(vector<int>& mass);
-void SelectSortOpt(vector<int>& mass);
+void SelectSort(vector<int>& mass, int& M, int& C);
+void SelectSortOpt(vector<int>& mass, int& M, int& C);
