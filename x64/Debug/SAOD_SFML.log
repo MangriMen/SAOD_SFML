@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿  ShellSort.cpp
 C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(18,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(194,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
@@ -10,4 +11,105 @@ C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(194,40): warning C4244: 'arg
           [
               T=float
           ]
+=======
+﻿  BubbleSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,54): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,54): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,54): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,54): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,54): warning C4244:         ]
+  InsertionSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,40): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,40): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,40): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,40): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\BubbleSort.cpp(177,40): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,54): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,54): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,54): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,54): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,54): warning C4244:         ]
+  SelectSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,40): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,40): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,40): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,40): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(184,40): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,54): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,54): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,54): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,54): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,54): warning C4244:         ]
+  ShakerSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,40): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,40): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,40): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,40): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\SelectSort.cpp(273,40): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(17,25): warning C4267:  инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(17,49): warning C4267:  инициализация: преобразование из "size_t" в "int"; возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,54): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,54): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,54): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,54): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,54): warning C4244:         ]
+  compare.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,40): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,40): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,40): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,40): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(186,40): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,55): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,55): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,55): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,55): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,55): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,41): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,41): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,41): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,41): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(173,41): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,55): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,55): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,55): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,55): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,55): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,41): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,41): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,41): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,41): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(183,41): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,55): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,55): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,55): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,55): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,55): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,41): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,41): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,41): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,41): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(193,41): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,55): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,55): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,55): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,55): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,55): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,41): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,41): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,41): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,41): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(203,41): warning C4244:         ]
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,91): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,91): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,91): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,91): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,91): warning C4244:         ]
+  menu.cpp
+  Создание кода...
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,82): warning C4244:  аргумент: преобразование "int" в "T", возможна потеря данных
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,82): warning C4244:         with
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,82): warning C4244:         [
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,82): warning C4244:             T=float
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(260,82): warning C4244:         ]
+>>>>>>> 1112a44392fad70f408799215d40899a7ce65c54
   SAOD_SFML.vcxproj -> C:\Users\mangr\source\repos\SAOD_SFML\x64\Debug\SAOD_SFML.exe

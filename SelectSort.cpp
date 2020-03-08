@@ -8,6 +8,7 @@
 #include <SFML/Graphics.hpp>
 #include "menu.hpp"
 #include "ArrOperations.hpp"
+#include "Constants.hpp"
 
 using namespace sf;
 
@@ -93,7 +94,7 @@ void SelectSortMenu(RenderWindow& window)
 	SetOriginOnCenter(tOy);
 	tOy.setPosition(rOy.getPosition() + rOy.getSize() + Vector2f(10, -5));
 
-	VertexArray graph(LineStrip, 350);
+	VertexArray graph(LineStrip, (int)ceil(graphPoints/(double) step));
 
 	rArrayOut.setPosition(Vector2f(435, 50));
 	rArrayOutO.setPosition(Vector2f(435, 145));
@@ -265,11 +266,11 @@ void SelectSortMenu(RenderWindow& window)
 						tSeriesN2.setString(to_string(RunNumber(a)));
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
-						for (int i = 1; i <= 350; ++i)
+						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
-							SelectSortOpt(a, M, C);
-							graph[i - 1].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
+							SelectSort(a, M, C);
+							graph[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
 							OyGraphNum(i, M + C, rOy, temp, font, 500);
 							M = 0, C = 0;
 						}

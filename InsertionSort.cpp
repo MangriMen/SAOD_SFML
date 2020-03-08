@@ -14,18 +14,24 @@ using namespace std;
 
 void InsertionSort(vector<int>& mass, int& M, int& C)
 {
+	M = 0, C = 0;
 	int t = 0, j = 0;
 	for (int i = 1; i < mass.size(); i++)
 	{
-		C++;
 		t = mass[i];
 		j = i - 1;
-
-		while (j > 0 && t < mass[j])
+		M++;
+		while (j >= 0 && t < mass[j])
 		{
 			mass[j + 1] = mass[j];
 			j = j - 1;
-			M += 3;
+			M ++;
+			C++;
+		}
+		if (!(j >= 0 && t < mass[j]))
+		{
+			M++;
+			C++;
 		}
 		mass[j + 1] = t;
 	}
@@ -171,7 +177,7 @@ void InsertionSortMenu(RenderWindow& window)
 						InsertionSort(a, M, C);
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
-						for (int i = 1, j = 0; i < graphPoints; ++j, i += step)
+						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
 							InsertionSort(a, M, C);
