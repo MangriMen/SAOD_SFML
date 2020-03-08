@@ -1,10 +1,11 @@
-﻿  InsertionSort.cpp
-C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(178,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  ShellSort.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(18,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(194,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\InsertionSort.cpp(178,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(194,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float

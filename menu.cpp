@@ -6,6 +6,7 @@
 #include "BubbleSort.hpp"
 #include "ShakerSort.hpp"
 #include "InsertionSort.hpp"
+#include "ShellSort.hpp"
 #include "Constants.hpp"
 #include "compare.hpp"
 
@@ -38,15 +39,18 @@ void menu(RenderWindow& window) {
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
 	Text tSelectSort("SelectSort", font, 36), tBubbleSort("BubbleSort", font, 36), tShakerSort("ShakerSort", font, 36),
-		tInsertionSort("InsertionSort", font, 36), tBubble_Shaker("Compare", font, 36), tExit("Exit", font, 36);
+		tInsertionSort("InsertionSort", font, 36), tShellSort("ShellSort", font, 36);
+	Text tBubble_Shaker("Compare", font, 36), tExit("Exit", font, 36);
 
 	RectangleShape rSelectSort(Vector2f(200, 50)), rBubbleSort(Vector2f(200, 50)), rShakerSort(Vector2f(200, 50)),
-		rInsertionSort(Vector2f(200, 50)), rBubble_Shaker(Vector2f(200, 50)), rExit(Vector2f(170, 50));
+		rInsertionSort(Vector2f(200, 50)), rShellSort(Vector2f(200, 50));
+	RectangleShape rBubble_Shaker(Vector2f(200, 50)), rExit(Vector2f(170, 50));
 
 	rSelectSort.setPosition(Vector2f(50, 50));
 	rBubbleSort.setPosition(Vector2f(50, 145));
 	rShakerSort.setPosition(Vector2f(50, 240));
 	rInsertionSort.setPosition(Vector2f(50, 335));
+	rShellSort.setPosition(Vector2f(50, 430));
 	rBubble_Shaker.setPosition(Vector2f(435, 50));
 	rExit.setPosition(Vector2f(50, 610));
 
@@ -61,6 +65,9 @@ void menu(RenderWindow& window) {
 
 	SetOriginOnCenter(tInsertionSort);
 	tInsertionSort.setPosition(rInsertionSort.getSize() / 2.0f + rInsertionSort.getPosition());
+
+	SetOriginOnCenter(tShellSort);
+	tShellSort.setPosition(rShellSort.getSize() / 2.0f + rShellSort.getPosition());
 
 	SetOriginOnCenter(tBubble_Shaker);
 	tBubble_Shaker.setPosition(rBubble_Shaker.getSize() / 2.0f + rBubble_Shaker.getPosition());
@@ -82,6 +89,7 @@ void menu(RenderWindow& window) {
 		DefaultButtonRect(rBubbleSort);
 		DefaultButtonRect(rShakerSort);
 		DefaultButtonRect(rInsertionSort);
+		DefaultButtonRect(rShellSort);
 		DefaultButtonRect(rBubble_Shaker);
 		DefaultButtonRect(rExit);
 
@@ -89,6 +97,7 @@ void menu(RenderWindow& window) {
 		DefaultButtonText(tBubbleSort);
 		DefaultButtonText(tShakerSort);
 		DefaultButtonText(tInsertionSort);
+		DefaultButtonText(tShellSort);
 		DefaultButtonText(tBubble_Shaker);
 		DefaultButtonText(tExit);
 
@@ -108,9 +117,13 @@ void menu(RenderWindow& window) {
 		{
 			HoverButtonRect(rInsertionSort); menuNum = 4;
 		}
+		if (IntRect(50, 430, 200, 50).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rShellSort); menuNum = 5;
+		}
 		if (IntRect(435, 50, 200, 50).contains(Mouse::getPosition(window)))
 		{
-			HoverButtonRect(rBubble_Shaker); menuNum = 5;
+			HoverButtonRect(rBubble_Shaker); menuNum = 100;
 		}
 		if (IntRect(50, 620, 170, 50).contains(Mouse::getPosition(window)))
 		{
@@ -148,6 +161,10 @@ void menu(RenderWindow& window) {
 					}
 					if (menuNum == 5)
 					{
+						ShellSortMenu(window);
+					}
+					if (menuNum == 100)
+					{
 						CompareMenu(window);
 					}
 					if (menuNum == 1666)
@@ -164,14 +181,16 @@ void menu(RenderWindow& window) {
 		window.draw(rBubbleSort);
 		window.draw(rShakerSort);
 		window.draw(rShakerSort);
-		window.draw(rBubble_Shaker);
 		window.draw(rInsertionSort);
+		window.draw(rShellSort);
+		window.draw(rBubble_Shaker);
 		window.draw(rExit);
 
 		window.draw(tSelectSort);
 		window.draw(tBubbleSort);
 		window.draw(tShakerSort);
 		window.draw(tInsertionSort);
+		window.draw(tShellSort);
 		window.draw(tBubble_Shaker);
 		window.draw(tExit);
 

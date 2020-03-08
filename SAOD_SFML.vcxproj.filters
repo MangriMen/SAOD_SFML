@@ -42,6 +42,9 @@
     <ClCompile Include="InsertionSort.cpp">
       <Filter>Source Files\Sorts</Filter>
     </ClCompile>
+    <ClCompile Include="ShellSort.cpp">
+      <Filter>Source Files\Sorts</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="SelectSort.hpp">
@@ -66,6 +69,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="InsertionSort.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ShellSort.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
