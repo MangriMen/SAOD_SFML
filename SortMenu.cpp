@@ -21,7 +21,7 @@ void SortMenu(RenderWindow& window, const int SortType)
 {
 	vector<int> a(18);
 
-	int M = 0, C = 0;
+	int M = 0, C = 0, K = 0;
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
@@ -135,7 +135,7 @@ void SortMenu(RenderWindow& window, const int SortType)
 						if(SortType == 2) BubbleSort(a, M, C);
 						if(SortType == 3) ShakerSort(a, M, C);
 						if(SortType == 4) InsertionSort(a, M, C);
-						if (SortType == 5) ShellSort(a, M, C);
+						if (SortType == 5) ShellSort(a, M, C, K);
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
@@ -145,7 +145,7 @@ void SortMenu(RenderWindow& window, const int SortType)
 							if (SortType == 2) BubbleSort(a, M, C);
 							if (SortType == 3) ShakerSort(a, M, C);
 							if (SortType == 4) InsertionSort(a, M, C);
-							if (SortType == 5) ShellSort(a, M, C);
+							if (SortType == 5) ShellSort(a, M, C, K);
 							graph[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
 							OyGraphNum(i, M + C, rOy, temp, font, 500);
 							M = 0, C = 0;

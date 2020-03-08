@@ -12,13 +12,13 @@
 
 using namespace std;
 
-void ShellSort(vector<int>& mass, int& M, int& C)
+void ShellSort(vector<int>& mass, int& M, int& C, int& K)
 {
-	M = 0; C = 0;
+	M = 0; C = 0, K = 0;
 	int j = 0, t = 0;
 	for (int k = mass.size() / 2; k > 0; k--)
 	{
-		C++;
+		K++;
 		for (int i = k; i < mass.size(); i++)
 		{
 			C++;

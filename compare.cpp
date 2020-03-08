@@ -3,13 +3,15 @@
 #include <algorithm>
 #include <sstream>
 #include <SFML/Graphics.hpp>
-#include "menu.hpp"
-#include "ArrOperations.hpp"
+#include "SortMenu.hpp"
 #include "SelectSort.hpp"
 #include "BubbleSort.hpp"
 #include "ShakerSort.hpp"
 #include "InsertionSort.hpp"
+#include "ShellSort.hpp"
 #include "Constants.hpp"
+#include "compare.hpp"
+#include "menu.hpp"
 
 using namespace sf;
 
@@ -17,7 +19,7 @@ void CreateTable(vector<int> &mass, vector< vector<Text> > &tFill, Font &font)
 {
 	vector< vector<int> > tCount(6, vector<int>(6, 0));
 	Text tmp ("", font, 26);
-	int n = 0, M = 0, C = 0;
+	int n = 0, M = 0, C = 0, K = 0;
 
 	for (int i = 0; i < 6; ++i)
 	{
@@ -26,17 +28,20 @@ void CreateTable(vector<int> &mass, vector< vector<Text> > &tFill, Font &font)
 		{
 			if (i == 0)
 			{
-				tmp.setString("Test");
+				tmp.setString("| N |");
+				tFill[i][0] = tmp;
+
+				tmp.setString("K-sort");
 				tFill[i][1] = tmp;
 
-				tmp.setString("Test");
+				tmp.setString("Insertion");
 				tFill[i][2] = tmp;
 
-				tmp.setString("Test");
+				tmp.setString("Shell");
 				tFill[i][3] = tmp;
 
-				tmp.setString("Test");
-				tFill[i][4] = tmp;
+				//tmp.setString("Test");
+				//tFill[i][4] = tmp;
 			}
 			else
 			{
@@ -45,31 +50,15 @@ void CreateTable(vector<int> &mass, vector< vector<Text> > &tFill, Font &font)
 					tmp.setString(to_string(n));
 					tFill[i][j] = tmp;
 				}
-				if (j == 1)
+				/*if (j == 1)
 				{
 					FillRand(mass, n);
 					SelectSort(mass, M, C);
 					tCount[i][j] = M + C;
 					tmp.setString(to_string(M + C));
 					tFill[i][j] = tmp;
-				}
+				}*/
 				if (j == 2)
-				{
-					FillRand(mass, n);
-					BubbleSort(mass, M, C);
-					tCount[i][j] = M + C;
-					tmp.setString(to_string(M + C));
-					tFill[i][j] = tmp;
-				}
-				if (j == 3)
-				{
-					FillRand(mass, n);
-					ShakerSort(mass, M, C);
-					tCount[i][j] = M + C;
-					tmp.setString(to_string(M + C));
-					tFill[i][j] = tmp;
-				}
-				if (j == 4)
 				{
 					FillRand(mass, n);
 					InsertionSort(mass, M, C);
@@ -77,6 +66,24 @@ void CreateTable(vector<int> &mass, vector< vector<Text> > &tFill, Font &font)
 					tmp.setString(to_string(M + C));
 					tFill[i][j] = tmp;
 				}
+				if (j == 3)
+				{
+					FillRand(mass, n);
+					ShellSort(mass, M, C, K);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+					tmp.setString(to_string(K));
+					tFill[i][1] = tmp;
+				}
+				/*if (j == 4)
+				{
+					FillRand(mass, n);
+					InsertionSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}*/
 			}
 		}
 	}

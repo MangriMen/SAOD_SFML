@@ -12,5 +12,4 @@
 using namespace std;
 using namespace sf;
 
-void ShellSort(vector<int>& mass, int& M, int& C);
-void ShellSortMenu(RenderWindow& window);
+void ShellSort(vector<int>& mass, int& M, int& C, int& K);

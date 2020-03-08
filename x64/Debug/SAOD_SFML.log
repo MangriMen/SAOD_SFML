@@ -1,80 +1,52 @@
-﻿  BubbleSort.cpp
-  ArrOperations.cpp
-C:\Users\mangr\source\repos\SAOD_SFML\ArrOperations.cpp(83,63): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+﻿  compare.cpp
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(174,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-  compare.cpp
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(167,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(174,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(167,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(184,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(177,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(184,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(177,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(194,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(187,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(194,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(187,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(204,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(197,55): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(204,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(197,41): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(256,91): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(249,91): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(256,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
           with
           [
               T=float
           ]
-C:\Users\mangr\source\repos\SAOD_SFML\compare.cpp(249,82): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  InsertionSort.cpp
-  main.cpp
-  menu.cpp
-  SelectSort.cpp
-  ShakerSort.cpp
-C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(17,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\mangr\source\repos\SAOD_SFML\ShakerSort.cpp(17,49): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  ShellSort.cpp
-C:\Users\mangr\source\repos\SAOD_SFML\ShellSort.cpp(19,30): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-  SortMenu.cpp
-C:\Users\mangr\source\repos\SAOD_SFML\SortMenu.cpp(149,54): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-C:\Users\mangr\source\repos\SAOD_SFML\SortMenu.cpp(149,40): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  Generating Code...
   SAOD_SFML.vcxproj -> C:\Users\mangr\source\repos\SAOD_SFML\x64\Debug\SAOD_SFML.exe

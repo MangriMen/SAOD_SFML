@@ -13,4 +13,3 @@ using namespace std;
 using namespace sf;
 
 void ShakerSort(vector<int>& mass, int& M, int& C);
-void ShakerSortMenu(RenderWindow& window);

@@ -13,4 +13,3 @@ using namespace std;
 using namespace sf;
 
 void InsertionSort(vector<int>& mass, int& M, int& C);
-void InsertionSortMenu(RenderWindow& window);
