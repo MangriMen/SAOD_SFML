@@ -16,12 +16,18 @@
     <Filter Include="Source Files\Sorts">
       <UniqueIdentifier>{70dfd3e7-512a-4365-83f9-db155468af38}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Sorts">
+      <UniqueIdentifier>{c9a9f5be-2e12-4ebf-b424-321431b88f44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Menu">
+      <UniqueIdentifier>{35da122c-e675-4d11-8cae-4e39f0ef6c0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Menu">
+      <UniqueIdentifier>{e8719dea-d83a-4a30-9f9f-05fef499c6a9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BubbleSort.cpp">
@@ -36,43 +42,52 @@
     <ClCompile Include="ArrOperations.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="compare.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="InsertionSort.cpp">
       <Filter>Source Files\Sorts</Filter>
     </ClCompile>
     <ClCompile Include="ShellSort.cpp">
       <Filter>Source Files\Sorts</Filter>
     </ClCompile>
+    <ClCompile Include="compare.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
+    <ClCompile Include="SortMenu.cpp">
+      <Filter>Source Files\Menu</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SelectSort.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="menu.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ArrOperations.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="BubbleSort.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShakerSort.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="compare.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Constants.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="BubbleSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
     <ClInclude Include="InsertionSort.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="ShakerSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
     </ClInclude>
     <ClInclude Include="ShellSort.hpp">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.hpp">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="compare.hpp">
+      <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="SortMenu.hpp">
+      <Filter>Header Files\Menu</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

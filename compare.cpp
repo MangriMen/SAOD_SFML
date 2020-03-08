@@ -1,8 +1,5 @@
 #include <iostream>
 #include <vector>
-#include <ctime>
-#include <cmath>
-#include <iterator>
 #include <algorithm>
 #include <sstream>
 #include <SFML/Graphics.hpp>
@@ -22,47 +19,64 @@ void CreateTable(vector<int> &mass, vector< vector<Text> > &tFill, Font &font)
 	Text tmp ("", font, 26);
 	int n = 0, M = 0, C = 0;
 
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < 6; ++i)
 	{
-		n = 100 * (i + 1);
+		n = 100 * i;
 		for (int j = 0; j < 6; ++j)
 		{
-			if (j == 0)
+			if (i == 0)
 			{
-				tmp.setString(to_string(n));
-				tFill[i][j] = tmp;
+				tmp.setString("Test");
+				tFill[i][1] = tmp;
+
+				tmp.setString("Test");
+				tFill[i][2] = tmp;
+
+				tmp.setString("Test");
+				tFill[i][3] = tmp;
+
+				tmp.setString("Test");
+				tFill[i][4] = tmp;
 			}
-			if (j == 1)
+			else
 			{
-				FillRand(mass, n);
-				SelectSort(mass, M, C);
-				tCount[i][j] = M + C;
-				tmp.setString(to_string(M + C));
-				tFill[i][j] = tmp;
-			}
-			if (j == 2)
-			{
-				FillRand(mass, n);
-				BubbleSort(mass, M, C);
-				tCount[i][j] = M + C;
-				tmp.setString(to_string(M + C));
-				tFill[i][j] = tmp;
-			}
-			if (j == 3)
-			{
-				FillRand(mass, n);
-				ShakerSort(mass, M, C);
-				tCount[i][j] = M + C;
-				tmp.setString(to_string(M + C));
-				tFill[i][j] = tmp;
-			}
-			if (j == 4)
-			{
-				FillRand(mass, n);
-				InsertionSort(mass, M, C);
-				tCount[i][j] = M + C;
-				tmp.setString(to_string(M + C));
-				tFill[i][j] = tmp;
+				if (j == 0)
+				{
+					tmp.setString(to_string(n));
+					tFill[i][j] = tmp;
+				}
+				if (j == 1)
+				{
+					FillRand(mass, n);
+					SelectSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 2)
+				{
+					FillRand(mass, n);
+					BubbleSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 3)
+				{
+					FillRand(mass, n);
+					ShakerSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 4)
+				{
+					FillRand(mass, n);
+					InsertionSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
 			}
 		}
 	}
@@ -70,56 +84,39 @@ void CreateTable(vector<int> &mass, vector< vector<Text> > &tFill, Font &font)
 
 void CompareMenu(RenderWindow& window)
 {
-	vector<int> a(18);
-
 	int M = 0, C = 0;
-
-	bool isTable = 0;
-
-	Clock time;
+	vector<int> a(18);
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
 	Text tCompare("Compare", font, 28), tBackToMenu("Menu", font, 36);
-
+	
 	RectangleShape rCompare(Vector2f(170, 50)), rBackToMenu(Vector2f(170, 50)), rGraphicOut(Vector2f(800, 400)), rTable(Vector2f(800,400));
 
-	RectangleShape rOx(Vector2f(760, 1)), rOy(Vector2f(1, -360));
-	rOx.setPosition(Vector2f(455, 649));
-	rOy.setPosition(Vector2f(455, 649));
-
 	Text tOx("X", font, 20), tOy("Y", font, 20);
+	
+	RectangleShape rOx(Vector2f(760, 1)), rOy(Vector2f(1, -360));
 
-	vector<Text> temp1;
-	vector<Text> temp2;
-	vector<Text> temp3;
-	vector<Text> temp4;
+	CreateButton(rOx, tOx, Vector2f(455, 649));
+	CreateButton(rOy, tOy, Vector2f(455, 649));
 
-	vector< vector<Text> > tFill(5, vector<Text>(6));
-
-	SetOriginOnCenter(tOx);
 	tOx.setPosition(rOx.getPosition() + rOx.getSize() + Vector2f(10, 10));
-
-	SetOriginOnCenter(tOy);
 	tOy.setPosition(rOy.getPosition() + rOy.getSize() + Vector2f(10, -5));
 
-	VertexArray graph1(LineStrip, (int)ceil(graphPoints / (double)step));
-	VertexArray graph2(LineStrip, (int)ceil(graphPoints / (double)step));
-	VertexArray graph3(LineStrip, (int)ceil(graphPoints / (double)step));
-	VertexArray graph4(LineStrip, (int)ceil(graphPoints / (double)step));
+	vector< vector<Text> > tFill(6, vector<Text>(6));
+	vector<Text> temp1, temp2, temp3, temp4;
 
-	rCompare.setPosition(Vector2f(50, 270));
-	rBackToMenu.setPosition(Vector2f(50, 610));
-	rGraphicOut.setPosition(Vector2f(435, 270));
-	rTable.setPosition(Vector2f(435, 270));
+	VertexArray graph1(LineStrip, (int)ceil(graphPoints / (double)step)),
+		graph2(LineStrip, (int)ceil(graphPoints / (double)step)),
+		graph3(LineStrip, (int)ceil(graphPoints / (double)step)),
+		graph4(LineStrip, (int)ceil(graphPoints / (double)step));
 
-	SetOriginOnCenter(tCompare);
-	tCompare.setPosition(rCompare.getSize() / 2.0f + rCompare.getPosition());
+	CreateButton(rCompare, tCompare, Vector2f(50, 270));
+	CreateButton(rBackToMenu, tBackToMenu, Vector2f(50, 610));
+	CreateButton(rGraphicOut, Vector2f(435, 270));
+	CreateButton(rTable, Vector2f(435, 270));
 
-	SetOriginOnCenter(tBackToMenu);
-	tBackToMenu.setPosition(rBackToMenu.getSize() / 2.0f + rBackToMenu.getPosition());
-
-	bool isMenu = 1;
+	bool isMenu = 1, isTable = 0;;
 	int menuNum = 0;
 
 	while (isMenu)
@@ -127,13 +124,10 @@ void CompareMenu(RenderWindow& window)
 		Event event;
 		menuNum = 0;
 
-		window.clear(Color(34, 34, 38));
+		DefaultMenuBackground();
 
-		DefaultButtonText(tCompare);
-		DefaultButtonText(tBackToMenu);
-
-		DefaultButtonRect(rCompare);
-		DefaultButtonRect(rBackToMenu);
+		DefaultButton(rCompare, tCompare);
+		DefaultButton(rBackToMenu, tBackToMenu);
 		DefaultButtonRect(rGraphicOut);
 		DefaultButtonRect(rTable);
 
@@ -222,22 +216,17 @@ void CompareMenu(RenderWindow& window)
 				}
 			}
 		}
-
-		window.draw(rCompare);
-		window.draw(rBackToMenu);
 		window.draw(rGraphicOut);
 
-		window.draw(tCompare);
-		window.draw(tBackToMenu);
+		DrawButton(rCompare, tCompare);
+		DrawButton(rBackToMenu, tBackToMenu);
 
 		window.draw(graph1);
 		window.draw(graph2);
 		window.draw(graph3);
 		window.draw(graph4);
-		window.draw(rOx);
-		window.draw(rOy);
-		window.draw(tOx);
-		window.draw(tOy);
+		DrawButton(rOx, tOx);
+		DrawButton(rOy, tOy);
 
 		/*for (int i = 0; i < temp1.size(); i++)
 		{
@@ -248,12 +237,12 @@ void CompareMenu(RenderWindow& window)
 		for (int i = 0; i < temp2.size(); i++)
 		{
 			window.draw(temp2[i]);
-		}
-*/
+		}*/
+
 		if (isTable)
 		{
 			window.draw(rTable);
-			for (int i = 0; i < 5; ++i)
+			for (int i = 0; i < 6; ++i)
 			{
 				for (int j = 0; j < 6; ++j)
 				{

@@ -175,6 +175,7 @@
     <ClCompile Include="SelectSort.cpp" />
     <ClCompile Include="ShakerSort.cpp" />
     <ClCompile Include="ShellSort.cpp" />
+    <ClCompile Include="SortMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrOperations.hpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="SelectSort.hpp" />
     <ClInclude Include="ShakerSort.hpp" />
     <ClInclude Include="ShellSort.hpp" />
+    <ClInclude Include="SortMenu.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="x64\Debug\openal32.dll" />
