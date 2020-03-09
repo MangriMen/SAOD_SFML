@@ -8,6 +8,7 @@
 #include "ShellSort.hpp"
 #include "Constants.hpp"
 #include "compare.hpp"
+#include "BSearch.hpp"
 
 using namespace sf;
 
@@ -50,10 +51,12 @@ void menu(RenderWindow& window) {
 
 	Text tSelectSort("SelectSort", font, 36), tBubbleSort("BubbleSort", font, 36), tShakerSort("ShakerSort", font, 36),
 		tInsertionSort("InsertionSort", font, 36), tShellSort("ShellSort", font, 36);
+	Text tBSearch("Bin Search", font, 36);
 	Text tBubble_Shaker("Compare", font, 36), tExit("Exit", font, 36);
 
 	RectangleShape rSelectSort(Vector2f(200, 50)), rBubbleSort(Vector2f(200, 50)), rShakerSort(Vector2f(200, 50)),
 		rInsertionSort(Vector2f(200, 50)), rShellSort(Vector2f(200, 50));
+	RectangleShape rBSearch(Vector2f(200, 50));
 	RectangleShape rBubble_Shaker(Vector2f(200, 50)), rExit(Vector2f(170, 50));
 
 	CreateButton(rSelectSort, tSelectSort, Vector2f(50, 50));
@@ -63,6 +66,8 @@ void menu(RenderWindow& window) {
 	CreateButton(rShellSort, tShellSort, Vector2f(50, 430));
 	CreateButton(rBubble_Shaker, tBubble_Shaker, Vector2f(435, 50));
 	CreateButton(rExit, tExit, Vector2f(50, 610));
+
+	CreateButton(rBSearch, tBSearch, Vector2f(50, 525));
 
 	bool isMenu = 1;
 	int menuNum = 0;
@@ -81,6 +86,8 @@ void menu(RenderWindow& window) {
 		DefaultButton(rShellSort, tShellSort);
 		DefaultButton(rBubble_Shaker, tBubble_Shaker);
 		DefaultButton(rExit, tExit);
+
+		DefaultButton(rBSearch, tBSearch);
 
 		if (IntRect(50, 50, 200, 50).contains(Mouse::getPosition(window)))
 		{
@@ -101,6 +108,10 @@ void menu(RenderWindow& window) {
 		if (IntRect(50, 430, 200, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rShellSort); menuNum = 5;
+		}
+		if (IntRect(50, 535, 200, 50).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rBSearch); menuNum = 6;
 		}
 		if (IntRect(435, 50, 200, 50).contains(Mouse::getPosition(window)))
 		{
@@ -144,6 +155,10 @@ void menu(RenderWindow& window) {
 					{
 						SortMenu(window, 5);
 					}
+					if (menuNum == 6)
+					{
+						BSearchMenu(window);
+					}
 					if (menuNum == 100)
 					{
 						CompareMenu(window);
@@ -165,6 +180,8 @@ void menu(RenderWindow& window) {
 		DrawButton(rShellSort, tShellSort);
 		DrawButton(rBubble_Shaker, tBubble_Shaker);
 		DrawButton(rExit, tExit);
+
+		DrawButton(rBSearch, tBSearch);
 
 		window.display();
 	}

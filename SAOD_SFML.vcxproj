@@ -166,6 +166,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BSearch.cpp" />
+    <ClCompile Include="BSearch1.cpp" />
+    <ClCompile Include="BSearch2.cpp" />
     <ClCompile Include="BubbleSort.cpp" />
     <ClCompile Include="ArrOperations.cpp" />
     <ClCompile Include="compare.cpp" />
@@ -179,6 +182,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrOperations.hpp" />
+    <ClInclude Include="BSearch.hpp" />
+    <ClInclude Include="BSearch1.hpp" />
+    <ClInclude Include="BSearch2.hpp" />
     <ClInclude Include="BubbleSort.hpp" />
     <ClInclude Include="compare.hpp" />
     <ClInclude Include="Constants.hpp" />

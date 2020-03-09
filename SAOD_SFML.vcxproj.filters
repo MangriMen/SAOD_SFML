@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Menu">
       <UniqueIdentifier>{e8719dea-d83a-4a30-9f9f-05fef499c6a9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\BinSearch">
+      <UniqueIdentifier>{ac6f8cf7-bf87-4aa6-9cf3-989685f44f09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\BinSearch">
+      <UniqueIdentifier>{fb7e6c51-3cf1-4d5b-860b-8426a8743e68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -57,6 +63,15 @@
     <ClCompile Include="SortMenu.cpp">
       <Filter>Source Files\Menu</Filter>
     </ClCompile>
+    <ClCompile Include="BSearch1.cpp">
+      <Filter>Source Files\BinSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="BSearch2.cpp">
+      <Filter>Source Files\BinSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="BSearch.cpp">
+      <Filter>Source Files\BinSearch</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ArrOperations.hpp">
@@ -88,6 +103,15 @@
     </ClInclude>
     <ClInclude Include="SortMenu.hpp">
       <Filter>Header Files\Menu</Filter>
+    </ClInclude>
+    <ClInclude Include="BSearch1.hpp">
+      <Filter>Header Files\BinSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="BSearch2.hpp">
+      <Filter>Header Files\BinSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="BSearch.hpp">
+      <Filter>Header Files\BinSearch</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
