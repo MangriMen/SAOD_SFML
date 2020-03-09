@@ -12,4 +12,4 @@
 using namespace std;
 using namespace sf;
 
-void ShellSort(vector<int>& mass, int& M, int& C, int& K);
+void ShellSort(vector<int>& mass, int& M, int& C, int& K, int shellStep);
