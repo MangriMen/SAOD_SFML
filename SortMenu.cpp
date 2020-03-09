@@ -135,7 +135,7 @@ void SortMenu(RenderWindow& window, const int SortType)
 						if(SortType == 2) BubbleSort(a, M, C);
 						if(SortType == 3) ShakerSort(a, M, C);
 						if(SortType == 4) InsertionSort(a, M, C);
-						if (SortType == 5) ShellSort(a, M, C, K, 1);
+						if (SortType == 5) ShellSort(a, M, C, K, 2);
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)

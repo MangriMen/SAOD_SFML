@@ -132,7 +132,7 @@ void CreateTableInsVShell(vector<int>& mass, vector< vector<Text> >& tFill, Font
 				if (j == 3)
 				{
 					FillRand(mass, n);
-					ShellSort(mass, M, C, K, 1);
+					ShellSort(mass, M, C, K, 2);
 					tCount[i][j] = M + C;
 					tmp.setString(to_string(M + C));
 					tFill[i][j] = tmp;
