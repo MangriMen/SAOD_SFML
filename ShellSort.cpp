@@ -16,34 +16,46 @@ void ShellSort(vector<int>& mass, int& M, int& C, int& K, int shellStep)
 {
 	M = 0; C = 0, K = 0;
 	int j = 0, t = 0;
-	if (shellStep == 1)
+	vector<int> h;
+	h.push_back(1);
+	for (int i = 1; i < (int)log2(mass.size()) - 1; i++)
 	{
-		for (int k = mass.size(); k > 0; k--)
+		h.push_back(2 * h[i - 1]+ 1);
+	}
+	if (shellStep == 0)
+	{
+		for (int k = log2(mass.size()) - 1; k > 0; k--)
 		{
 			K++;
-			for (int i = k; i < mass.size(); i++)
+			for (int i = h[k-1]; i < mass.size(); i++)
 			{
+				M++;
 				C++;
 				t = mass[i];
-				j = i - k;
-
+				j = i - h[k-1];
 				while (j >= 0 && t < mass[j])
 				{
-					mass[j + k] = mass[j];
-					j = j - k;
-					M += 3;
+					mass[j + h[k-1]] = mass[j];
+					j = j - h[k-1];
+					M++;
 				}
-				mass[j + k] = t;
+				if (!(j >= 0 && t < mass[j]))
+				{
+					C++;
+				}
+				M++;
+				mass[j + h[k-1]] = t;
 			}
 		}
 	}
 	else
 	{
-		for (int k = mass.size() / shellStep; k > 0; k /= shellStep)
+		for (int k =(int) mass.size()/shellStep; k > 0; k /= shellStep)
 		{
 			K++;
 			for (int i = k; i < mass.size(); i++)
 			{
+				M++;
 				C++;
 				t = mass[i];
 				j = i - k;
@@ -52,22 +64,23 @@ void ShellSort(vector<int>& mass, int& M, int& C, int& K, int shellStep)
 				{
 					mass[j + k] = mass[j];
 					j = j - k;
-					M += 3;
+					M ++;
 				}
+				M++;
 				mass[j + k] = t;
 			}
 		}
-	}
-	/*for (int step = mass.size() / 2; step > 0; step /= 2)
-	{
-		C++;
-		for (int i = step; i < mass.size(); i++)
+	/*	for (int step = mass.size() / 2; step > 0; step /= 2)
 		{
-			for (j = i - step; j >= 0 && mass[j] > mass[j + step]; j -= step)
+			C++;
+			for (int i = step; i < mass.size(); i++)
 			{
-				swap(mass[j], mass[j + step]);
-				M++;
+				for (j = i - step; j >= 0 && mass[j] > mass[j + step]; j -= step)
+				{
+					swap(mass[j], mass[j + step]);
+					M++;
+				}
 			}
-		}
-	}*/
+		}*/
+	}
 }

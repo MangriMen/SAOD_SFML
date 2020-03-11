@@ -97,7 +97,7 @@ void CreateTableInsVShell(vector<int>& mass, vector< vector<Text> >& tFill, Font
 
 	for (int i = 0; i < 6; ++i)
 	{
-		n = 100 * i;
+		n = 200 * i;
 		for (int j = 0; j < 6; ++j)
 		{
 			if (i == 0)
@@ -152,7 +152,7 @@ void CreateTableKnut(vector<int>& mass, vector< vector<Text> >& tFill, Font& fon
 
 	for (int i = 0; i < 6; ++i)
 	{
-		n = 100 * i;
+		n = 200 * i;
 		for (int j = 0; j < 9; ++j)
 		{
 			if (i == 0)
@@ -182,12 +182,12 @@ void CreateTableKnut(vector<int>& mass, vector< vector<Text> >& tFill, Font& fon
 				if (j == 2)
 				{
 					FillRand(mass, n);
-					ShellSort(mass, M, C, K, 1);
+					ShellSort(mass, M, C, K, 0);
 					tCount[i][j] = M + C;
 					tmp.setString(to_string(M + C));
 					tFill[i][j] = tmp;
 					tmp.setString(to_string(K));
-					tFill[i][1] = tmp;
+					tFill[i][j-1] = tmp;
 				}
 				if (j == 4)
 				{
@@ -197,7 +197,7 @@ void CreateTableKnut(vector<int>& mass, vector< vector<Text> >& tFill, Font& fon
 					tmp.setString(to_string(M + C));
 					tFill[i][j] = tmp;
 					tmp.setString(to_string(K));
-					tFill[i][3] = tmp;
+					tFill[i][j-1] = tmp;
 				}
 			}
 		}
