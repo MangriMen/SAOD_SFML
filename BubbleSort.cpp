@@ -14,11 +14,9 @@ void BubbleSort(vector<int>& mass, int &M, int &C)
 	{
 		for (int j = 0; j < mass.size() - i - 1; ++j)
 		{
-			C++;
-			if (mass[j] > mass[j + 1])
+			if (mass[j] < mass[j + 1])
 			{
 				swap(mass[j], mass[j + 1]);
-				M += 3;
 			}
 		}
 	}

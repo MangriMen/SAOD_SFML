@@ -14,24 +14,26 @@
 #include "ShellSort.hpp"
 #include "compare.hpp"
 
-void BSearch1(vector<int>& mass, int& C, int key)
+int BSearch1(vector<int>& mass, int& C, int key, int& pos)
 {
-	int L = 1, R = mass.size(), m = 0;
-	bool find;
+	cin >> key;
+	C = 0;
+	pos = 0;
+	int L = 1, R = mass.size() - 1, m = 0;
+	bool isFind = false;
 	while (L <= R)
 	{
+		C++;
 		m = (L + R) / 2;
-		if (mass[m] == key)
-		{
-			find = true;
+		if (mass[m] == key) {
+			C++;
+			pos = m;
+			isFind = true;
 		}
 		if (mass[m] < key)
-		{
 			L = m + 1;
-		}
 		else
-		{
 			R = m - 1;
-		}
 	}
+	return isFind;
 }

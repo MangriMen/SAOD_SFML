@@ -22,7 +22,7 @@ void BSearchMenu(RenderWindow& window)
 {
 	vector<int> a(18);
 
-	int M = 0, C = 0, key = 0;
+	int M = 0, C = 0, key = 0, BC, pos;
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
@@ -133,7 +133,10 @@ void BSearchMenu(RenderWindow& window)
 					if (menuNum == 4)
 					{
 						InsertionSort(a, M, C);
-						BSearch1(a, M, key);
+						if (BSearch1(a, BC, key, pos))
+						{
+							cout << "Key: " << "\tPos: " << pos;
+						}
 						PrintMasG(a, tArrayOutO);
 						/*temp.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)

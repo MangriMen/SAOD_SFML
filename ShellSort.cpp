@@ -66,6 +66,10 @@ void ShellSort(vector<int>& mass, int& M, int& C, int& K, int shellStep)
 					j = j - k;
 					M ++;
 				}
+				if (!(j >= 0 && t < mass[j]))
+				{
+					C++;
+				}
 				M++;
 				mass[j + k] = t;
 			}

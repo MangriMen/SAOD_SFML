@@ -14,4 +14,4 @@
 #include "ShellSort.hpp"
 #include "compare.hpp"
 
-void BSearch1(vector<int>& mass, int& C, int key);
+int BSearch1(vector<int>& mass, int& C, int key, int& pos);
