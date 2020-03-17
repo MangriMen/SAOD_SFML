@@ -14,4 +14,6 @@
 #include "ShellSort.hpp"
 #include "compare.hpp"
 
+void BinTable(vector<int>& mass, vector< vector<Text> >& tFill, Font& font);
+void BinTableAll(vector<int>& mass, vector< vector<Text> >& tFill, Font& font);
 void BSearchMenu(RenderWindow& window);

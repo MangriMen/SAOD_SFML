@@ -31,6 +31,9 @@
     <Filter Include="Header Files\BinSearch">
       <UniqueIdentifier>{fb7e6c51-3cf1-4d5b-860b-8426a8743e68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ExtLibs">
+      <UniqueIdentifier>{48b74cba-8aa8-4fcb-bd08-69c876be0f52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -112,6 +115,9 @@
     </ClInclude>
     <ClInclude Include="BSearch.hpp">
       <Filter>Header Files\BinSearch</Filter>
+    </ClInclude>
+    <ClInclude Include="FormSFML.h">
+      <Filter>Header Files\ExtLibs</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

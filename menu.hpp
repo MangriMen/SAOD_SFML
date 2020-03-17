@@ -18,5 +18,8 @@ void DefaultButtonRect(CircleShape& shape);
 void HoverButtonRect(RectangleShape& shape);
 void HoverButtonRect(CircleShape& shape);
 void SetOriginOnCenter(Text& text);
+void UpdateCenter(RectangleShape button, Text& text);
+void UpdateCenter(CircleShape button, Text& text);
 void CreateButton(RectangleShape& button, Text& text, Vector2f position);
 void CreateButton(CircleShape& button, Text& text, Vector2f position);
+void CreateButton(RectangleShape& button, Vector2f position);

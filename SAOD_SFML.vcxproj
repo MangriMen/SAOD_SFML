@@ -188,6 +188,7 @@
     <ClInclude Include="BubbleSort.hpp" />
     <ClInclude Include="compare.hpp" />
     <ClInclude Include="Constants.hpp" />
+    <ClInclude Include="FormSFML.h" />
     <ClInclude Include="InsertionSort.hpp" />
     <ClInclude Include="menu.hpp" />
     <ClInclude Include="SelectSort.hpp" />

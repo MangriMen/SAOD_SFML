@@ -16,14 +16,146 @@
 #include "compare.hpp"
 #include "BSearch1.hpp"
 #include "BSearch2.hpp"
+#include "FormSFML.h"
 
+
+void BinTable(vector<int>& mass, vector< vector<Text> >& tFill, Font& font, int key, int pos)
+{
+	vector< vector<int> > tCount(6, vector<int>(6, 0));
+	Text tmp("", font, 22);
+	int n = 0, M = 0, C = 0, K = 0;
+
+	for (int i = 0; i < 6; ++i)
+	{
+		n = 200 * i;
+		for (int j = 0; j < 6; ++j)
+		{
+			if (i == 0)
+			{
+				tmp.setString("| N |");
+				tFill[i][0] = tmp;
+
+				tmp.setString("BinS1");
+				tFill[i][1] = tmp;
+
+				tmp.setString("BinS2");
+				tFill[i][2] = tmp;
+
+				tmp.setString("Pos");
+				tFill[i][3] = tmp;
+			}
+			else
+			{
+				if (j == 0)
+				{
+					tmp.setString(to_string(n));
+					tFill[i][j] = tmp;
+				}
+				if (j == 1)
+				{
+					FillRand(mass, n);
+					InsertionSort(mass, M, C);
+					if (BSearch1(mass, C, key, pos))
+					{
+						tmp.setString(to_string(pos));
+						tFill[i][3] = tmp;
+					}
+					else
+					{
+						tmp.setString("Not found");
+						tFill[i][3] = tmp;
+					}
+					tCount[i][j] = C;
+					tmp.setString(to_string(C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 2)
+				{
+					BSearch2(mass, C, key, pos);
+					tCount[i][j] = C;
+					tmp.setString(to_string(C));
+					tFill[i][j] = tmp;
+				}
+			}
+		}
+	}
+}
+
+void BinTableAll(vector<int>& mass, vector< vector<Text> >& tFill, Font& font, int key, int pos)
+{
+	vector< vector<int> > tCount(6, vector<int>(6, 0));
+	Text tmp("", font, 22);
+	int n = 0, M = 0, C = 0, K = 0;
+
+	for (int i = 0; i < 6; ++i)
+	{
+		n = 200 * i;
+		for (int j = 0; j < 6; ++j)
+		{
+			if (i == 0)
+			{
+				tmp.setString("| N |");
+				tFill[i][0] = tmp;
+
+				tmp.setString("BinS1");
+				tFill[i][1] = tmp;
+
+				tmp.setString("BinS2");
+				tFill[i][2] = tmp;
+
+				tmp.setString("Pos");
+				tFill[i][3] = tmp;
+			}
+			else
+			{
+				if (j == 0)
+				{
+					tmp.setString(to_string(n));
+					tFill[i][j] = tmp;
+				}
+				if (j == 1)
+				{
+					FillRand(mass, n);
+					InsertionSort(mass, M, C);
+					if (BSearch1(mass, C, key, pos))
+					{
+						tmp.setString(to_string(pos));
+						tFill[i][3] = tmp;
+					}
+					else
+					{
+						tmp.setString("Not found");
+						tFill[i][3] = tmp;
+					}
+					tCount[i][j] = C;
+					tmp.setString(to_string(C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 2)
+				{
+					BSearch2(mass, C, key, pos);
+					tCount[i][j] = C;
+					tmp.setString(to_string(C));
+					tFill[i][j] = tmp;
+				}
+			}
+		}
+	}
+}
 
 void BSearchMenu(RenderWindow& window)
 {
 	vector<int> a(18);
 
-	int M = 0, C = 0, K = 0;
+	int M = 0, C = 0, K = 0, pos = -1;
 	size_t aSize = a.size();
+
+	vector< vector<Text> > tFill(10, vector<Text>(10));
+
+	form::Button rKey(420, 156, 170, 50);
+	form::Label tKey(420, 156, "Заменить текст");
+	form::Input iKey(420, 156, 200, 30);
+	iKey.text = "0";
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
@@ -39,6 +171,14 @@ void BSearchMenu(RenderWindow& window)
 	CircleShape rClearArray(20);
 
 	RectangleShape rBinSearch1(Vector2f(350, 425)), rBinSearch2(Vector2f(350, 425));
+
+	Text tBS("BS", font, 36), tBSAll("BSAll", font, 36);
+	RectangleShape rBS(Vector2f(80, 40)), rBSAll(Vector2f(80, 40));
+
+	Text tPos("Pos: ", font, 28);
+	/*tKey("Key: ", font, 28),
+		rKey(Vector2f(170, 50)),*/
+	RectangleShape rPos(Vector2f(340, 50));
 
 	Text tOx("X", font, 20), tOy("Y", font, 20);
 
@@ -62,12 +202,18 @@ void BSearchMenu(RenderWindow& window)
 	CreateButton(rSort, tSort, Vector2f(105, 156));
 	CreateButton(rBackToMenu, tBackToMenu, Vector2f(18, 660));
 
+	/*CreateButton(rKey, tKey, Vector2f(420, 156));*/
+	CreateButton(rPos, tPos, Vector2f(880, 156));
+
+	CreateButton(rBS, tBS, Vector2f(173, 660));
+	CreateButton(rBSAll, tBSAll, Vector2f(288, 660));
+
 	rGraphicOut.setPosition(Vector2f(420, 244));
 	rBinSearch1.setPosition(Vector2f(18, 218));
 	rBinSearch2.setPosition(Vector2f(18, 218));
 
 	bool isMenu = 1;
-	int menuNum = 0;
+	int menuNum = 0, table = 1;
 
 	while (isMenu)
 	{
@@ -83,6 +229,20 @@ void BSearchMenu(RenderWindow& window)
 		DefaultButton(rSort, tSort);
 		DefaultButton(rClearArray, tClearArray);
 		DefaultButton(rBackToMenu, tBackToMenu);
+
+		/*DefaultButton(rKey, tKey);*/
+		DefaultButton(rPos, tPos);
+
+		if (table != 1)
+		{
+			DefaultButton(rBS, tBS);
+		}
+		if (table != 2)
+		{
+			DefaultButton(rBSAll, tBSAll);
+		}
+
+
 
 		DefaultButtonRect(rArrayOutO);
 		DefaultButtonRect(rGraphicOut);
@@ -113,6 +273,14 @@ void BSearchMenu(RenderWindow& window)
 		{
 			HoverButtonRect(rClearArray); menuNum = 7;
 		}
+		if (IntRect(173, 660, 80, 40).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rBS); menuNum = 8;
+		}
+		if (IntRect(288, 660, 80, 40).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rBSAll); menuNum = 9;
+		}
 		if (IntRect(18, 660, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rBackToMenu); menuNum = 6;
@@ -130,6 +298,8 @@ void BSearchMenu(RenderWindow& window)
 			{
 				if (event.mouseButton.button == Mouse::Left)
 				{
+					Vector2i mouse = Mouse::getPosition(window);
+					iKey.select(mouse);
 					if (menuNum == 1)
 					{
 						FillInc(a, (int)a.size());
@@ -147,8 +317,21 @@ void BSearchMenu(RenderWindow& window)
 					}
 					if (menuNum == 4)
 					{
+						K = stoi(iKey.readText());
+						tKey.text = iKey.readText();
+						/*tKey.setString("Key: " + to_string(K));
+						UpdateCenter(rKey, tKey);*/
 						InsertionSort(a, M, C);
 						PrintMasG(a, tArrayOutO);
+						if (BSearch1(a, C, K, pos))
+						{
+							tPos.setString("Pos: " + to_string(pos));
+						}
+						else
+						{
+							tPos.setString("Pos: not found");
+						}
+						UpdateCenter(rPos, tPos);
 						temp.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
@@ -158,9 +341,34 @@ void BSearchMenu(RenderWindow& window)
 							M = 0, C = 0;
 						}
 					}
+					if (menuNum == 5)
+					{
+						K = stoi(iKey.readText());
+						tKey.text = iKey.readText();
+						if (table == 1)
+						{
+							BinTable(a, tFill, font, K, pos);
+						}
+						else if (table == 2)
+						{
+							/*BinTableAll(a, tFill, font, K, pos);*/
+						}
+					}
 					if (menuNum == 7)
 					{
 						tArrayOutO.setString("");
+					}
+					if (menuNum == 8)
+					{
+						HoverButtonRect(rBS);
+						table = 1;
+						BinTable(a, tFill, font, K, pos);
+					}
+					if (menuNum == 9)
+					{
+						HoverButtonRect(rBSAll);
+						table = 2;
+						BinTable(a, tFill, font, K, pos);
 					}
 					if (menuNum == 6)
 					{
@@ -172,6 +380,11 @@ void BSearchMenu(RenderWindow& window)
 
 					SetOriginOnCenter(tArrayOutO);
 					tArrayOutO.setPosition(rArrayOutO.getSize() / 2.0f + rArrayOutO.getPosition() + Vector2f(5, 5));
+				}
+			}
+			if (event.type == sf::Event::TextEntered) {
+				if (iKey.select()) {
+					iKey.reText(event.text.unicode);
 				}
 			}
 		}
@@ -187,9 +400,28 @@ void BSearchMenu(RenderWindow& window)
 		window.draw(rGraphicOut);
 		window.draw(rBinSearch1);
 
+		DrawButton(rBS, tBS);
+		DrawButton(rBSAll, tBSAll);
+
+		/*DrawButton(rKey, tKey);*/
+		DrawButton(rPos, tPos);
+		window.draw(rKey.displayButton());
+		/*window.draw(iKey.displayButton());*/
+		window.draw(iKey.displayText());
+		//window.draw(tKey.displayText());
+
 		window.draw(graph);
 		DrawButton(rOx, tOx);
 		DrawButton(rOy, tOy);
+
+		for (int i = 0; i < 6; ++i)
+		{
+			for (int j = 0; j < 6; ++j)
+			{
+				tFill[i][j].setPosition(rBinSearch1.getPosition() + Vector2f(20, 20) + Vector2f(j * 70, i * 70));
+				window.draw(tFill[i][j]);
+			}
+		}
 
 		for (int i = 0; i < temp.size(); i++)
 		{

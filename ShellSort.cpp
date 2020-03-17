@@ -24,7 +24,7 @@ void ShellSort(vector<int>& mass, int& M, int& C, int& K, int shellStep)
 	}
 	if (shellStep == 0)
 	{
-		for (int k = log2(mass.size()) - 1; k > 0; k--)
+		for (int k = (int)log2(mass.size()) - 1; k > 0; k--)
 		{
 			K++;
 			for (int i = h[k-1]; i < mass.size(); i++)

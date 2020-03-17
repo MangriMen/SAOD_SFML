@@ -32,7 +32,7 @@ void FillRand(vector<int>& mass, int size)
 	mass.clear();
 	for (int i = 0; i < size; i++)
 	{
-		mass.push_back(rand() % (size * 2));
+		mass.push_back(rand() % 100);
 	}
 }
 

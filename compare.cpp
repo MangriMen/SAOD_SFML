@@ -362,11 +362,11 @@ void CompareMenu(RenderWindow& window)
 						{
 							CreateTable(a, tFill, font);
 						}
-						if (table == 2)
+						else if (table == 2)
 						{
 							CreateTableInsVShell(a, tFill, font);
 						}
-						if (table == 3)
+						else if (table == 3)
 						{
 							CreateTableKnut(a, tFill, font);
 						}

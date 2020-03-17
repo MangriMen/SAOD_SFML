@@ -16,7 +16,6 @@
 
 int BSearch1(vector<int>& mass, int& C, int key, int& pos)
 {
-	cin >> key;
 	C = 0;
 	pos = 0;
 	int L = 1, R = mass.size() - 1, m = 0;

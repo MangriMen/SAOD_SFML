@@ -43,6 +43,18 @@ void SetOriginOnCenter(Text& text) {
 		FRect.top + FRect.height / 2.0f);
 }
 
+void UpdateCenter(RectangleShape button, Text& text)
+{
+	SetOriginOnCenter(text);
+	text.setPosition(button.getSize() / 2.0f + button.getPosition());
+}
+
+void UpdateCenter(CircleShape button, Text& text)
+{
+	SetOriginOnCenter(text);
+	text.setPosition(Vector2f(button.getRadius(), button.getRadius()) + button.getPosition());
+}
+
 void CreateButton(RectangleShape& button, Text& text, Vector2f position)
 {
 	button.setPosition(position);
