@@ -22,24 +22,29 @@ void BSearchMenu(RenderWindow& window)
 {
 	vector<int> a(18);
 
-	int M = 0, C = 0, key = 0, BC, pos;
+	int M = 0, C = 0, K = 0;
+	size_t aSize = a.size();
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
-	Text tArrayOutO("", font, 28), tArrayOut("", font, 28), tClearArray("C", font, 28),
+	Text tArrayOutO("", font, 28), tArraySize(to_string(aSize), font, 28), tClearArray("C", font, 28),
 		tFillInc("Fill Inc", font, 36), tFillDec("Fill Dec", font, 36),
 		tFillRand("FillRand", font, 36), tSort("Sort", font, 36), tBackToMenu("Menu", font, 36);
 
-	RectangleShape rArrayOutO(Vector2f(800, 50)), rArrayOut(Vector2f(800, 50)), rClearArray(Vector2f(40, 40)),
+	RectangleShape rArrayOutO(Vector2f(840, 122)), rArraySize(Vector2f(170, 50)),
 		rFillInc(Vector2f(170, 50)), rFillDec(Vector2f(170, 50)),
-		rFillRand(Vector2f(170, 50)), rSort(Vector2f(170, 50)), rBackToMenu(Vector2f(170, 50)),
+		rFillRand(Vector2f(170, 50)), rSort(Vector2f(170, 50)), rBackToMenu(Vector2f(120, 40)),
 		rGraphicOut(Vector2f(800, 400));
+
+	CircleShape rClearArray(20);
+
+	RectangleShape rBinSearch1(Vector2f(350, 425)), rBinSearch2(Vector2f(350, 425));
 
 	Text tOx("X", font, 20), tOy("Y", font, 20);
 
 	RectangleShape rOx(Vector2f(760, 1)), rOy(Vector2f(1, -360));
-	CreateButton(rOx, tOx, Vector2f(455, 649));
-	CreateButton(rOy, tOy, Vector2f(455, 649));
+	CreateButton(rOx, tOx, Vector2f(440, 623));
+	CreateButton(rOy, tOy, Vector2f(440, 623));
 
 	tOx.setPosition(rOx.getPosition() + rOx.getSize() + Vector2f(10, 10));
 	tOy.setPosition(rOy.getPosition() + rOy.getSize() + Vector2f(10, -5));
@@ -48,16 +53,18 @@ void BSearchMenu(RenderWindow& window)
 
 	VertexArray graph(LineStrip, (int)ceil(graphPoints / (double)step));
 
-	CreateButton(rArrayOut, tArrayOut, Vector2f(435, 50));
-	CreateButton(rArrayOutO, tArrayOutO, Vector2f(435, 145));
-	CreateButton(rClearArray, tClearArray, Vector2f(435, 50));
-	CreateButton(rFillInc, tFillInc, Vector2f(50, 50));
-	CreateButton(rFillDec, tFillDec, Vector2f(50, 145));
-	CreateButton(rFillRand, tFillRand, Vector2f(50, 240));
-	CreateButton(rSort, tSort, Vector2f(50, 385));
-	CreateButton(rBackToMenu, tBackToMenu, Vector2f(50, 610));
+	CreateButton(rArraySize, tArraySize, Vector2f(18, 20));
+	CreateButton(rArrayOutO, tArrayOutO, Vector2f(420, 20));
+	CreateButton(rClearArray, tClearArray, Vector2f(45, 160));
+	CreateButton(rFillInc, tFillInc, Vector2f(198, 20));
+	CreateButton(rFillDec, tFillDec, Vector2f(18, 92));
+	CreateButton(rFillRand, tFillRand, Vector2f(198, 92));
+	CreateButton(rSort, tSort, Vector2f(105, 156));
+	CreateButton(rBackToMenu, tBackToMenu, Vector2f(18, 660));
 
-	rGraphicOut.setPosition(Vector2f(435, 270));
+	rGraphicOut.setPosition(Vector2f(420, 244));
+	rBinSearch1.setPosition(Vector2f(18, 218));
+	rBinSearch2.setPosition(Vector2f(18, 218));
 
 	bool isMenu = 1;
 	int menuNum = 0;
@@ -69,33 +76,44 @@ void BSearchMenu(RenderWindow& window)
 
 		DefaultMenuBackground();
 
-		DefaultButton(rArrayOut, tArrayOut);
+		DefaultButton(rArraySize, tArraySize);
 		DefaultButton(rFillInc, tFillInc);
 		DefaultButton(rFillDec, tFillDec);
 		DefaultButton(rFillRand, tFillRand);
 		DefaultButton(rSort, tSort);
+		DefaultButton(rClearArray, tClearArray);
 		DefaultButton(rBackToMenu, tBackToMenu);
 
 		DefaultButtonRect(rArrayOutO);
 		DefaultButtonRect(rGraphicOut);
+		DefaultButtonRect(rBinSearch1);
+		DefaultButtonRect(rBinSearch2);
 
-		if (IntRect(50, 50, 170, 50).contains(Mouse::getPosition(window)))
+		if (IntRect(198, 20, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rFillInc); menuNum = 1;
 		}
-		if (IntRect(50, 145, 170, 50).contains(Mouse::getPosition(window)))
+		if (IntRect(18, 92, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rFillDec); menuNum = 2;
 		}
-		if (IntRect(50, 240, 170, 50).contains(Mouse::getPosition(window)))
+		if (IntRect(198, 92, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rFillRand); menuNum = 3;
 		}
-		if (IntRect(50, 385, 170, 50).contains(Mouse::getPosition(window)))
+		if (IntRect(105, 156, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rSort); menuNum = 4;
 		}
-		if (IntRect(50, 610, 170, 50).contains(Mouse::getPosition(window)))
+		if (IntRect(18, 218, 350, 425).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rBinSearch1); menuNum = 5;
+		}
+		if (IntRect(45, 160, 40, 40).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rClearArray); menuNum = 7;
+		}
+		if (IntRect(18, 660, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rBackToMenu); menuNum = 6;
 		}
@@ -115,50 +133,42 @@ void BSearchMenu(RenderWindow& window)
 					if (menuNum == 1)
 					{
 						FillInc(a, (int)a.size());
-						PrintMasG(a, tArrayOut);
-						tArrayOutO.setString("");
+						PrintMasG(a, tArrayOutO);
 					}
 					if (menuNum == 2)
 					{
 						FillDec(a, (int)a.size());
-						PrintMasG(a, tArrayOut);
-						tArrayOutO.setString("");
+						PrintMasG(a, tArrayOutO);
 					}
 					if (menuNum == 3)
 					{
 						FillRand(a, (int)a.size());
-						PrintMasG(a, tArrayOut);
-						tArrayOutO.setString("");
+						PrintMasG(a, tArrayOutO);
 					}
 					if (menuNum == 4)
 					{
 						InsertionSort(a, M, C);
-						if (BSearch1(a, BC, key, pos))
-						{
-							cout << "Key: " << "\tPos: " << pos;
-						}
 						PrintMasG(a, tArrayOutO);
-						/*temp.clear();
+						temp.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
-							FillRand(a, i);
-							if (SortType == 1) SelectSort(a, M, C);
-							if (SortType == 2) BubbleSort(a, M, C);
-							if (SortType == 3) ShakerSort(a, M, C);
-							if (SortType == 4) InsertionSort(a, M, C);
-							if (SortType == 5) ShellSort(a, M, C, K, 1);
-							graph[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
-							OyGraphNum(i, M + C, rOy, temp, font, 500);
+							InsertionSort(a, M, C);
+							graph[j].position = (Vector2f(i * 2, -(M + C)) + rOx.getPosition());
+							OyGraphNum(i, M + C, rOy, temp, font, 1);
 							M = 0, C = 0;
-						}*/
+						}
+					}
+					if (menuNum == 7)
+					{
+						tArrayOutO.setString("");
 					}
 					if (menuNum == 6)
 					{
 						isMenu = false;
 						menu(window);
 					}
-					SetOriginOnCenter(tArrayOut);
-					tArrayOut.setPosition(rArrayOut.getSize() / 2.0f + rArrayOut.getPosition() + Vector2f(5, 5));
+					SetOriginOnCenter(tArraySize);
+					tArraySize.setPosition(rArraySize.getSize() / 2.0f + rArraySize.getPosition() + Vector2f(5, 5));
 
 					SetOriginOnCenter(tArrayOutO);
 					tArrayOutO.setPosition(rArrayOutO.getSize() / 2.0f + rArrayOutO.getPosition() + Vector2f(5, 5));
@@ -166,14 +176,16 @@ void BSearchMenu(RenderWindow& window)
 			}
 		}
 
-		DrawButton(rArrayOut, tArrayOut);
+		DrawButton(rArraySize, tArraySize);
 		DrawButton(rArrayOutO, tArrayOutO);
 		DrawButton(rFillInc, tFillInc);
 		DrawButton(rFillDec, tFillDec);
 		DrawButton(rFillRand, tFillRand);
 		DrawButton(rSort, tSort);
+		DrawButton(rClearArray, tClearArray);
 		DrawButton(rBackToMenu, tBackToMenu);
 		window.draw(rGraphicOut);
+		window.draw(rBinSearch1);
 
 		window.draw(graph);
 		DrawButton(rOx, tOx);

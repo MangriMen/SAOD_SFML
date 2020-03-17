@@ -240,8 +240,8 @@ void CompareMenu(RenderWindow& window)
 
 	CreateButton(rCompare, tCompare, Vector2f(50, 270));
 	CreateButton(rBackToMenu, tBackToMenu, Vector2f(50, 610));
-	CreateButton(rGraphicOut, Vector2f(435, 270));
-	CreateButton(rTable, Vector2f(435, 270));
+	rGraphicOut.setPosition(Vector2f(435, 270));
+	rTable.setPosition(Vector2f(435, 270));
 
 	bool isMenu = 1, isTable = 0;
 	int menuNum = 0, table = 0;

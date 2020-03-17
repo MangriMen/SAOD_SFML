@@ -22,7 +22,17 @@ void DefaultButtonRect(RectangleShape& shape)
 	shape.setFillColor(Color(51, 51, 54));
 }
 
+void DefaultButtonRect(CircleShape& shape)
+{
+	shape.setFillColor(Color(51, 51, 54));
+}
+
 void HoverButtonRect(RectangleShape& shape)
+{
+	shape.setFillColor(Color(68, 68, 70));
+}
+
+void HoverButtonRect(CircleShape& shape)
 {
 	shape.setFillColor(Color(68, 68, 70));
 }
@@ -38,6 +48,13 @@ void CreateButton(RectangleShape& button, Text& text, Vector2f position)
 	button.setPosition(position);
 	SetOriginOnCenter(text);
 	text.setPosition(button.getSize() / 2.0f + button.getPosition());
+}
+
+void CreateButton(CircleShape& button, Text& text, Vector2f position)
+{
+	button.setPosition(position);
+	SetOriginOnCenter(text);
+	text.setPosition(Vector2f(button.getRadius(), button.getRadius()) + button.getPosition());
 }
 
 void CreateButton(RectangleShape& button, Vector2f position)
