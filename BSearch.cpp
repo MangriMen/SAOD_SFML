@@ -21,13 +21,13 @@
 
 void BinTable(vector<int>& mass, vector< vector<Text> >& tFill, Font& font, int key, int pos)
 {
-	vector< vector<int> > tCount(6, vector<int>(6, 0));
-	Text tmp("", font, 22);
+	vector< vector<int> > tCount(12, vector<int>(6, 0));
+	Text tmp("", font, 16);
 	int n = 0, M = 0, C = 0, K = 0;
 
-	for (int i = 0; i < 6; ++i)
+	for (int i = 0; i < 11; ++i)
 	{
-		n = 200 * i;
+		n = 100 * i;
 		for (int j = 0; j < 6; ++j)
 		{
 			if (i == 0)
@@ -150,7 +150,7 @@ void BSearchMenu(RenderWindow& window)
 	int M = 0, C = 0, K = 0, pos = -1;
 	size_t aSize = a.size();
 
-	vector< vector<Text> > tFill(10, vector<Text>(10));
+	vector< vector<Text> > tFill(12, vector<Text>(12));
 
 	form::Button rKey(420, 156, 170, 50);
 	form::Label tKey(420, 156, "Заменить текст");
@@ -414,11 +414,11 @@ void BSearchMenu(RenderWindow& window)
 		DrawButton(rOx, tOx);
 		DrawButton(rOy, tOy);
 
-		for (int i = 0; i < 6; ++i)
+		for (int i = 0; i < 11; ++i)
 		{
 			for (int j = 0; j < 6; ++j)
 			{
-				tFill[i][j].setPosition(rBinSearch1.getPosition() + Vector2f(20, 20) + Vector2f(j * 70, i * 70));
+				tFill[i][j].setPosition(rBinSearch1.getPosition() + Vector2f(20, 20) + Vector2f(j * 75, i * 37));
 				window.draw(tFill[i][j]);
 			}
 		}
