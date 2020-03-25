@@ -23,23 +23,18 @@ int BSearch1(vector<int>& mass, int& C, int key, int& pos)
 	while (L <= R)
 	{
 		m = (L + R) / 2;
+		C++;
 		if (mass[m] == key) {
-			C++;
 			pos = m;
 			isFind = true;
 		}
-		else
-		{
-			C++;
-		}
+		C++;
 		if (mass[m] < key)
 		{
-			C++;
 			L = m + 1;
 		}
 		else
 		{
-			C++;
 			R = m - 1;
 		}
 	}
