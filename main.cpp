@@ -7,6 +7,8 @@ using namespace sf;
 
 int main()
 {
+	setlocale(0, "");
+	system("color 70");
 	ContextSettings settings;
 	settings.antialiasingLevel = 8;
 

@@ -34,6 +34,15 @@
     <Filter Include="Header Files\ExtLibs">
       <UniqueIdentifier>{48b74cba-8aa8-4fcb-bd08-69c876be0f52}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\ExtLibs">
+      <UniqueIdentifier>{362292e9-5b1c-49ee-9b6b-67dfd71d4810}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lab11">
+      <UniqueIdentifier>{6300525d-6adb-4529-a3b3-8785ce922e1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Lab11">
+      <UniqueIdentifier>{178e7994-100c-490f-b892-29caa0a9c083}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -47,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="ShakerSort.cpp">
       <Filter>Source Files\Sorts</Filter>
-    </ClCompile>
-    <ClCompile Include="ArrOperations.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="InsertionSort.cpp">
       <Filter>Source Files\Sorts</Filter>
@@ -74,6 +80,30 @@
     </ClCompile>
     <ClCompile Include="BSearch.cpp">
       <Filter>Source Files\BinSearch</Filter>
+    </ClCompile>
+    <ClCompile Include="IndexSort.cpp">
+      <Filter>Source Files\Sorts</Filter>
+    </ClCompile>
+    <ClCompile Include="HeapSort.cpp">
+      <Filter>Source Files\Sorts</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort.cpp">
+      <Filter>Source Files\Sorts</Filter>
+    </ClCompile>
+    <ClCompile Include="QuickSort2.cpp">
+      <Filter>Source Files\Sorts</Filter>
+    </ClCompile>
+    <ClCompile Include="FormSFML.cpp">
+      <Filter>Source Files\ExtLibs</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu11.cpp">
+      <Filter>Source Files\Lab11</Filter>
+    </ClCompile>
+    <ClCompile Include="ArrOperations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DigitalSort.cpp">
+      <Filter>Source Files\Sorts</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,7 +146,31 @@
     <ClInclude Include="BSearch.hpp">
       <Filter>Header Files\BinSearch</Filter>
     </ClInclude>
-    <ClInclude Include="FormSFML.h">
+    <ClInclude Include="IndexSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="QuickSort2.hpp">
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="FormSFML.hpp">
+      <Filter>Header Files\ExtLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu11.hpp">
+      <Filter>Header Files\Lab11</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.hpp">
+      <Filter>Header Files\Lab11</Filter>
+    </ClInclude>
+    <ClInclude Include="DigitalSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
+    </ClInclude>
+    <ClInclude Include="myQueue.h">
+      <Filter>Header Files\ExtLibs</Filter>
+    </ClInclude>
+    <ClInclude Include="myStack.h">
       <Filter>Header Files\ExtLibs</Filter>
     </ClInclude>
   </ItemGroup>
@@ -153,6 +207,9 @@
     </None>
     <None Include="x64\Debug\sfml-window-d-2.dll">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="HeapSort.hpp">
+      <Filter>Header Files\Sorts</Filter>
     </None>
   </ItemGroup>
 </Project>

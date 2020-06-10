@@ -12,8 +12,12 @@
 #include "ShakerSort.hpp"
 #include "InsertionSort.hpp"
 #include "ShellSort.hpp"
+#include "HeapSort.hpp"
 #include "Constants.hpp"
 #include "compare.hpp"
+#include "QuickSort.hpp"
+#include "QuickSort2.hpp"
+#include "DigitalSort.hpp"
 
 using namespace sf;
 
@@ -21,7 +25,16 @@ void SortMenu(RenderWindow& window, const int SortType)
 {
 	vector<int> a(18);
 
-	int M = 0, C = 0, K = 0;
+	//char alo[12] = { 'Ê', 'À', 'Ä', 'Û', 'Ð', 'Á', 'À', 'Å', 'Â', 'À', 'Ë', 'Å' };
+	/*char alo[12] = { 'Ë', 'Å', 'Â', 'Ê', 'È', 'Í', 'È', 'Ã', 'Î', 'Ð', 'Ü', 'À' };
+
+	for (auto i : alo)
+		a.push_back(static_cast<int> (i));*/
+
+	int M = 0, C = 0, K = 0, D = 0;
+
+	int textStep = 50;
+	double yStep = 500;
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
@@ -46,6 +59,8 @@ void SortMenu(RenderWindow& window, const int SortType)
 	vector<Text> temp;
 
 	VertexArray graph(LineStrip, (int)ceil(graphPoints / (double)step));
+
+	VertexArray lines(LineStrip, graphPoints / 50);
 
 	CreateButton(rArrayOut, tArrayOut, Vector2f(435, 50));
 	CreateButton(rArrayOutO, tArrayOutO, Vector2f(435, 145));
@@ -114,6 +129,7 @@ void SortMenu(RenderWindow& window, const int SortType)
 					if (menuNum == 1)
 					{
 						FillInc(a, (int)a.size());
+						//QuickSort(a, M, C, D, 0, a.size() - 1);
 						PrintMasG(a, tArrayOut);
 						tArrayOutO.setString("");
 					}
@@ -136,20 +152,37 @@ void SortMenu(RenderWindow& window, const int SortType)
 						if(SortType == 3) ShakerSort(a, M, C);
 						if(SortType == 4) InsertionSort(a, M, C);
 						if (SortType == 5) ShellSort(a, M, C, K, 0);
+						if (SortType == 6) HeapSort(a, M, C);
+						if (SortType == 7) QuickSort(a, M, C, D, 0, a.size() - 1);
+						//if (SortType == 8) QuickSort2(a, M, C, D, 0, a.size() - 1);
+						if (SortType == 10) DigitalSort(a, M, C);
 						PrintMasG(a, tArrayOutO);
 						temp.clear();
-						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
-						{
-							FillRand(a, i);
-							if (SortType == 1) SelectSort(a, M, C);
-							if (SortType == 2) BubbleSort(a, M, C);
-							if (SortType == 3) ShakerSort(a, M, C);
-							if (SortType == 4) InsertionSort(a, M, C);
-							if (SortType == 5) ShellSort(a, M, C, K, 0);
-							graph[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
-							OyGraphNum(i, M + C, rOy, temp, font, 500);
-							M = 0, C = 0;
-						}
+						M = 0, C = 0;
+						//for (int i = 1, j = 0, l = 0; i <= graphPoints; ++j, i += step)
+						//{
+						//	FillRand(a, i);
+						//	if (SortType == 1) { SelectSort(a, M, C); yStep = 500; textStep = 50; }
+						//	if (SortType == 2) { BubbleSort(a, M, C); yStep = 500; textStep = 50; }
+						//	if (SortType == 3) { ShakerSort(a, M, C); yStep = 500; textStep = 50; }
+						//	if (SortType == 4) { InsertionSort(a, M, C); yStep = 300; textStep = 50; }
+						//	if (SortType == 5) { ShellSort(a, M, C, K, 0); yStep = 50; textStep = 50; }
+						//	if (SortType == 6) { HeapSort(a, M, C); yStep = 50; textStep = 50; }
+						//	if (SortType == 7) { QuickSort(a, M, C, D, 0, a.size() - 1); yStep = 50; textStep = 50; }
+						//	if (SortType == 8) { QuickSort2(a, M, C, D, 0, a.size() - 1); yStep = 50; textStep = 50; }
+						//	if (SortType == 10) DigitalSort(a, M, C);
+						//	graph[j].position = (Vector2f(i * 2, -(M + C) / yStep) + rOx.getPosition());
+						//	/*if (i % 50 == 0)
+						//	{
+						//		lines[l].position = (Vector2f(i * 2, -(M + C) / yStep) + rOx.getPosition());
+						//		l += 2;
+						//	}	*/
+						//	OyGraphNum(i, M + C, rOy, temp, font, yStep, textStep);
+						//	M = 0, C = 0, D = 0;
+						//}
+						a.resize(18);
+						tOx.setString("X " + to_string(graphPoints));
+						tOy.setString("Y " + to_string(yStep).erase(4, to_string(yStep).size()));
 					}
 					if (menuNum == 6)
 					{

@@ -16,7 +16,7 @@
 #include "compare.hpp"
 #include "BSearch1.hpp"
 #include "BSearch2.hpp"
-#include "FormSFML.h"
+#include "FormSFML.hpp"
 
 
 void BinTable(vector<int>& mass, vector< vector<Text> >& tFill, Font& font, int key, int pos)
@@ -153,9 +153,9 @@ void BSearchMenu(RenderWindow& window)
 	vector< vector<Text> > tFill(12, vector<Text>(12));
 
 	form::Button rKey(420, 156, 170, 50);
-	form::Label tKey(420, 156, "Заменить текст");
+	form::Label tKey("Заменить текст", 420, 156);
 	form::Input iKey(420, 156, 200, 30);
-	iKey.text = "0";
+	iKey.setText("0");
 
 	Font font;
 	font.loadFromFile("fonts/Roboto/Roboto-Regular.ttf");
@@ -318,7 +318,7 @@ void BSearchMenu(RenderWindow& window)
 					if (menuNum == 4)
 					{
 						K = stoi(iKey.readText());
-						tKey.text = iKey.readText();
+						tKey.setText(iKey.readText());
 						/*tKey.setString("Key: " + to_string(K));
 						UpdateCenter(rKey, tKey);*/
 						InsertionSort(a, M, C);
@@ -337,14 +337,14 @@ void BSearchMenu(RenderWindow& window)
 						{
 							InsertionSort(a, M, C);
 							graph[j].position = (Vector2f(i * 2, -(M + C)) + rOx.getPosition());
-							OyGraphNum(i, M + C, rOy, temp, font, 1);
+							OyGraphNum(i, M + C, rOy, temp, font, 1, 50);
 							M = 0, C = 0;
 						}
 					}
 					if (menuNum == 5)
 					{
 						K = stoi(iKey.readText());
-						tKey.text = iKey.readText();
+						tKey.setText(iKey.readText());
 						if (table == 1)
 						{
 							BinTable(a, tFill, font, K, pos);

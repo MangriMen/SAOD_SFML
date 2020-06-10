@@ -9,9 +9,11 @@
 #include "ShakerSort.hpp"
 #include "InsertionSort.hpp"
 #include "ShellSort.hpp"
+#include "HeapSort.hpp"
 #include "Constants.hpp"
 #include "compare.hpp"
 #include "menu.hpp"
+#include "QuickSort.hpp"
 
 using namespace sf;
 
@@ -204,9 +206,153 @@ void CreateTableKnut(vector<int>& mass, vector< vector<Text> >& tFill, Font& fon
 	}
 }
 
+void CreateTableHeap(vector<int>& mass, vector< vector<Text> >& tFill, Font& font)
+{
+	vector< vector<int> > tCount(6, vector<int>(6, 0));
+	Text tmp("", font, 26);
+	int n = 0, M = 0, C = 0, K = 0, D = 0;
+
+	for (int i = 0; i < 6; ++i)
+	{
+		n = 100 * i;
+		for (int j = 0; j < 6; ++j)
+		{
+			if (i == 0)
+			{
+				tmp.setString("| N |");
+				tFill[i][0] = tmp;
+
+				tmp.setString("Increment");
+				tFill[i][1] = tmp;
+
+				tmp.setString("Decrement");
+				tFill[i][2] = tmp;
+
+				tmp.setString("Random");
+				tFill[i][3] = tmp;
+
+				tmp.setString("");
+				tFill[i][4] = tmp;
+			}
+			else
+			{
+				if (j == 0)
+				{
+					tmp.setString(to_string(n));
+					tFill[i][j] = tmp;
+				}
+				if (j == 1)
+				{
+					FillInc(mass, n);
+					HeapSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 2)
+				{
+					FillDec(mass, n);
+					HeapSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 3)
+				{
+					FillRand(mass, n);
+					HeapSort(mass, M, C);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+					tmp.setString(to_string(K));
+				}
+				if (j == 4)
+				{
+					tmp.setString("");
+					tFill[i][j] = tmp;
+				}
+			}
+		}
+	}
+}
+
+void CreateTableQuick(vector<int>& mass, vector< vector<Text> >& tFill, Font& font)
+{
+	vector< vector<int> > tCount(6, vector<int>(6, 0));
+	Text tmp("", font, 26);
+	int n = 0, M = 0, C = 0, K = 0, D = 0;
+
+	for (int i = 0; i < 6; ++i)
+	{
+		n = 100 * i;
+		for (int j = 0; j < 6; ++j)
+		{
+			if (i == 0)
+			{
+				tmp.setString("| N |");
+				tFill[i][0] = tmp;
+
+				tmp.setString("Increment");
+				tFill[i][1] = tmp;
+
+				tmp.setString("Decrement");
+				tFill[i][2] = tmp;
+
+				tmp.setString("Random");
+				tFill[i][3] = tmp;
+
+				tmp.setString("");
+				tFill[i][4] = tmp;
+			}
+			else
+			{
+				if (j == 0)
+				{
+					tmp.setString(to_string(n));
+					tFill[i][j] = tmp;
+				}
+				if (j == 1)
+				{
+					M = 0, C = 0;
+					FillInc(mass, n);
+					QuickSort(mass, M, C, D, 0, mass.size() - 1);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 2)
+				{
+					M = 0, C = 0;
+					FillDec(mass, n);
+					QuickSort(mass, M, C, D, 0, mass.size() - 1);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+				}
+				if (j == 3)
+				{
+					M = 0, C = 0;
+					FillRand(mass, n);
+					QuickSort(mass, M, C, D, 0, mass.size() - 1);
+					tCount[i][j] = M + C;
+					tmp.setString(to_string(M + C));
+					tFill[i][j] = tmp;
+					tmp.setString(to_string(K));
+				}
+				if (j == 4)
+				{
+					tmp.setString("");
+					tFill[i][j] = tmp;
+				}
+			}
+		}
+	}
+}
+
 void CompareMenu(RenderWindow& window)
 {
-	int M = 0, C = 0;
+	int M = 0, C = 0, K = 0, D = 0;
+	int yStep = 500;
 	vector<int> a(18);
 
 	Font font;
@@ -215,12 +361,15 @@ void CompareMenu(RenderWindow& window)
 	Text tCompare("Compare", font, 28), tBackToMenu("Menu", font, 36);
 	RectangleShape rCompare(DefaultSize), rBackToMenu(DefaultSize), rGraphicOut(Vector2f(800, 400)), rTable(Vector2f(800,400));
 
-	Text tDefault("Default", font, 28), tInsertVsShell("InsVsShell", font, 28), tKnutCompare("KnutCompare", font, 28);
-	RectangleShape rDefault(DefaultSize), rInsertVsShell(DefaultSize), rKnutCompare(DefaultSize);
+	Text tDefault("Default", font, 28), tInsertVsShell("InsVsShell", font, 28), tKnutCompare("KnutCompare", font, 28),
+		tHeapVsShell("HeapVsShell", font, 28), tQuickSort("QuickSort", font, 28);
+	RectangleShape rDefault(DefaultSize), rInsertVsShell(DefaultSize), rKnutCompare(DefaultSize), rHeapVsShell(DefaultSize), rQuickSort(DefaultSize);
 
 	CreateButton(rDefault, tDefault, Vector2f(435, 170));
 	CreateButton(rInsertVsShell, tInsertVsShell, Vector2f(655, 170));
 	CreateButton(rKnutCompare, tKnutCompare, Vector2f(875, 170));
+	CreateButton(rHeapVsShell, tHeapVsShell, Vector2f(435, 100));
+	CreateButton(rQuickSort, tQuickSort, Vector2f(655, 100));
 
 	Text tOx("X", font, 20), tOy("Y", font, 20);
 	RectangleShape rOx(Vector2f(760, 1)), rOy(Vector2f(1, -360));
@@ -256,17 +405,19 @@ void CompareMenu(RenderWindow& window)
 		DefaultButton(rCompare, tCompare);
 		DefaultButton(rBackToMenu, tBackToMenu);
 		if (table != 1)
-		{
 			DefaultButton(rDefault, tDefault);
-		}
+
 		if (table != 2)
-		{
 			DefaultButton(rInsertVsShell, tInsertVsShell);
-		}
+
 		if (table != 3)
-		{
 			DefaultButton(rKnutCompare, tKnutCompare);
-		}
+
+		if (table != 4)
+			DefaultButton(rHeapVsShell, tHeapVsShell);
+
+		if (table != 5)
+			DefaultButton(rQuickSort, tQuickSort);
 		
 		DefaultButtonRect(rGraphicOut);
 		DefaultButtonRect(rTable);
@@ -292,6 +443,14 @@ void CompareMenu(RenderWindow& window)
 		{
 			HoverButtonRect(rKnutCompare); menuNum = 5;
 		}
+		if (IntRect(435, 100, 170, 50).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rHeapVsShell); menuNum = 6;
+		}
+		if (IntRect(655, 100, 170, 50).contains(Mouse::getPosition(window)))
+		{
+			HoverButtonRect(rQuickSort); menuNum = 7;
+		}
 		if (IntRect(50, 610, 170, 50).contains(Mouse::getPosition(window)))
 		{
 			HoverButtonRect(rBackToMenu); menuNum = 1666;
@@ -311,13 +470,14 @@ void CompareMenu(RenderWindow& window)
 				{
 					if (menuNum == 1)
 					{
+						yStep = 50;
 						temp1.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
-							SelectSort(a, M, C);
-							graph1[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
-							OyGraphNum(i, M + C, rOy, temp1, font, 500);
+							ShellSort(a, M, C, K, 0);
+							graph1[j].position = (Vector2f(i * 2, -(M + C) / yStep) + rOx.getPosition());
+							OyGraphNum(i, M + C, rOy, temp1, font, yStep, 50);
 							graph1[j].color = Color::Cyan;
 							M = 0, C = 0;
 						}
@@ -325,9 +485,9 @@ void CompareMenu(RenderWindow& window)
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
-							BubbleSort(a, M, C);
-							graph2[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
-							OyGraphNum(i, M + C, rOy, temp2, font, 500);
+							HeapSort(a, M, C);
+							graph2[j].position = (Vector2f(i * 2, -(M + C) / yStep) + rOx.getPosition());
+							OyGraphNum(i, M + C, rOy, temp2, font, yStep, 50);
 							graph2[j].color = Color::Red;
 							M = 0, C = 0;
 						}
@@ -335,13 +495,13 @@ void CompareMenu(RenderWindow& window)
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
-							ShakerSort(a, M, C);
-							graph3[j].position = (Vector2f(i * 2, -(M + C) / 500) + rOx.getPosition());
-							OyGraphNum(i, M + C, rOy, temp3, font, 500);
-							graph3[j].color = Color::Yellow;
+							QuickSort(a, M, C, D, 0, a.size() - 1);
+							graph3[j].position = (Vector2f(i * 2, -(M + C) / yStep) + rOx.getPosition());
+							OyGraphNum(i, M + C, rOy, temp3, font, yStep, 50);
+							graph3[j].color = Color::Green;
 							M = 0, C = 0;
 						}
-						temp4.clear();
+						/*temp4.clear();
 						for (int i = 1, j = 0; i <= graphPoints; ++j, i += step)
 						{
 							FillRand(a, i);
@@ -350,11 +510,17 @@ void CompareMenu(RenderWindow& window)
 							OyGraphNum(i, M + C, rOy, temp4, font, 500);
 							graph4[j].color = Color::White;
 							M = 0, C = 0;
+						}*/
+						for (int i = 0; i < temp2.size(); i++)
+						{
+							temp1[i].setPosition(temp1[i].getPosition() + Vector2f(-100, 0));
 						}
 						for (int i = 0; i < temp2.size(); i++)
 						{
-							temp2[i].setPosition(temp2[i].getPosition() + Vector2f(100, 0));
+							temp2[i].setPosition(temp2[i].getPosition() + Vector2f(-50, 0));
 						}
+						tOx.setString("X " + to_string(graphPoints));
+						tOy.setString("Y " + to_string(yStep));
 					}
 					if (menuNum == 2)
 					{
@@ -369,6 +535,10 @@ void CompareMenu(RenderWindow& window)
 						else if (table == 3)
 						{
 							CreateTableKnut(a, tFill, font);
+						}
+						else if (table == 4)
+						{
+							CreateTableHeap(a, tFill, font);
 						}
 					}
 					if (menuNum == 3)
@@ -389,6 +559,18 @@ void CompareMenu(RenderWindow& window)
 						table = 3;
 						CreateTableKnut(a, tFill, font);
 					}
+					if (menuNum == 6)
+					{
+						HoverButtonRect(rHeapVsShell);
+						table = 4;
+						CreateTableHeap(a, tFill, font);
+					}
+					if (menuNum == 7)
+					{
+						HoverButtonRect(rQuickSort);
+						table = 5;
+						CreateTableQuick(a, tFill, font);
+					}
 					if (menuNum == 1666)
 					{
 						isMenu = false;
@@ -404,6 +586,8 @@ void CompareMenu(RenderWindow& window)
 		DrawButton(rDefault, tDefault);
 		DrawButton(rInsertVsShell, tInsertVsShell);
 		DrawButton(rKnutCompare, tKnutCompare);
+		DrawButton(rHeapVsShell, tHeapVsShell);
+		DrawButton(rQuickSort, tQuickSort);
 
 		window.draw(graph1);
 		window.draw(graph2);
@@ -412,16 +596,23 @@ void CompareMenu(RenderWindow& window)
 		DrawButton(rOx, tOx);
 		DrawButton(rOy, tOy);
 
-		/*for (int i = 0; i < temp1.size(); i++)
+		for (int i = 0; i < temp1.size(); i++)
 		{
-			temp1[i].setFillColor(Color::Red);
+			temp1[i].setFillColor(Color::Cyan);
 			window.draw(temp1[i]);
 		}
 
 		for (int i = 0; i < temp2.size(); i++)
 		{
+			temp2[i].setFillColor(Color::Red);
 			window.draw(temp2[i]);
-		}*/
+		}
+
+		for (int i = 0; i < temp3.size(); i++)
+		{
+			temp3[i].setFillColor(Color::Green);
+			window.draw(temp3[i]);
+		}
 
 		if (isTable)
 		{

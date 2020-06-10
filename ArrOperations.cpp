@@ -6,6 +6,8 @@
 #include <sstream>
 #include <thread>
 #include <SFML/Graphics.hpp>
+#include "Stack.hpp"
+#include "FormSFML.hpp"
 
 using namespace std;
 
@@ -18,6 +20,15 @@ void FillInc(vector<int>& mass, int size)
 	}
 }
 
+void FillInc(Stack<int>& mass, int size)
+{
+	mass.empty();
+	for (int i = size; i > 0; i--)
+	{
+		mass.push(i);
+	}
+}
+
 void FillDec(vector<int>& mass, int size)
 {
 	mass.clear();
@@ -27,12 +38,30 @@ void FillDec(vector<int>& mass, int size)
 	}
 }
 
+void FillDec(Stack<int>& mass, int size)
+{
+	mass.empty();
+	for (int i = 1; i <= size; i++)
+	{
+		mass.push(i);
+	}
+}
+
 void FillRand(vector<int>& mass, int size)
 {
 	mass.clear();
 	for (int i = 0; i < size; i++)
 	{
 		mass.push_back(rand() % 100);
+	}
+}
+
+void FillRand(Stack<int>& mass, int size)
+{
+	mass.empty();
+	for (int i = 0; i < size; i++)
+	{
+		mass.push(rand() % 100);
 	}
 }
 
@@ -48,7 +77,6 @@ int CheckSum(vector<int> mass)
 
 int RunNumber(vector<int> mass)
 {
-	cout << endl;
 	int t = 0, c = 0;
 	for (int i = 0; i < mass.size() - 1; i++)
 	{
@@ -75,9 +103,21 @@ void PrintMasG(vector<int> mass, sf::Text& text)
 	text.setString(str);
 }
 
-void OyGraphNum(int i,int MpC, sf::RectangleShape &rOy, vector<sf::Text> &temp, sf::Font &font, int sortDevider)
+void PrintMasG(Stack<int>& mass, form::Label& label)
 {
-	if (i % 50 == 0)
+	vector<int> numbers = mass.out();
+	std::string str = "";
+
+	for (int i = 0; i < numbers.size(); i++) {
+		str += to_string(numbers[i]) + " ";
+	}
+	
+	label.setText(str);
+}
+
+void OyGraphNum(int i, int MpC, sf::RectangleShape& rOy, vector<sf::Text>& temp, sf::Font& font, double sortDevider, int textStep)
+{
+	if (i % textStep == 0)
 	{
 		sf::Text tt(to_string(MpC), font, 10);
 		tt.setPosition(rOy.getPosition() + sf::Vector2f(-80, -(MpC) / sortDevider));

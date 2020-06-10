@@ -166,15 +166,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrOperations.cpp" />
     <ClCompile Include="BSearch.cpp" />
     <ClCompile Include="BSearch1.cpp" />
     <ClCompile Include="BSearch2.cpp" />
     <ClCompile Include="BubbleSort.cpp" />
-    <ClCompile Include="ArrOperations.cpp" />
     <ClCompile Include="compare.cpp" />
+    <ClCompile Include="DigitalSort.cpp" />
+    <ClCompile Include="FormSFML.cpp" />
+    <ClCompile Include="HeapSort.cpp" />
+    <ClCompile Include="IndexSort.cpp" />
     <ClCompile Include="InsertionSort.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <ClCompile Include="Menu11.cpp" />
+    <ClCompile Include="QuickSort.cpp" />
+    <ClCompile Include="QuickSort2.cpp" />
     <ClCompile Include="SelectSort.cpp" />
     <ClCompile Include="ShakerSort.cpp" />
     <ClCompile Include="ShellSort.cpp" />
@@ -188,15 +195,24 @@
     <ClInclude Include="BubbleSort.hpp" />
     <ClInclude Include="compare.hpp" />
     <ClInclude Include="Constants.hpp" />
-    <ClInclude Include="FormSFML.h" />
+    <ClInclude Include="DigitalSort.hpp" />
+    <ClInclude Include="FormSFML.hpp" />
+    <ClInclude Include="IndexSort.hpp" />
     <ClInclude Include="InsertionSort.hpp" />
     <ClInclude Include="menu.hpp" />
+    <ClInclude Include="Menu11.hpp" />
+    <ClInclude Include="myQueue.h" />
+    <ClInclude Include="myStack.h" />
+    <ClInclude Include="QuickSort.hpp" />
+    <ClInclude Include="QuickSort2.hpp" />
     <ClInclude Include="SelectSort.hpp" />
     <ClInclude Include="ShakerSort.hpp" />
     <ClInclude Include="ShellSort.hpp" />
     <ClInclude Include="SortMenu.hpp" />
+    <ClInclude Include="Stack.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="HeapSort.hpp" />
     <None Include="x64\Debug\openal32.dll" />
     <None Include="x64\Debug\sfml-audio-2.dll" />
     <None Include="x64\Debug\sfml-audio-d-2.dll" />
